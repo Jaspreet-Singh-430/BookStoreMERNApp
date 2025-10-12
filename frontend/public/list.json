@@ -1,0 +1,74 @@
+[
+    {
+        "id":1,
+        "name":"Story book",
+        "title":"Aesop's fables",
+        "price":0,
+        "category":"free",
+        "image":"./bookCard.jpg"
+    },
+    {
+        "id":2,
+        "name":"Sports book",
+        "title":"Cricket My Style",
+        "price":200,
+        "category":"Sports",
+        "image":"./bookCard.jpg"
+    },
+    {
+        "id":3,
+        "name":"New Course",
+        "title":"Chemistry",
+        "price":0,
+        "category":"free",
+        "image":"./bookCard.jpg"
+    },
+    {
+        "id":4,
+        "name":"Recipy",
+        "title":"Kitchen King",
+        "price":100,
+        "category":"Food",
+        "image":"./bookCard.jpg"
+    },
+    {
+        "id":5,
+        "name":"Story book",
+        "title":"Aesop's fables",
+        "price":0,
+        "category":"free",
+        "image":"./bookCard.jpg"
+    },
+    {
+        "id":6,
+        "name":"Story book",
+        "title":"Aesop's fables",
+        "price":0,
+        "category":"free",
+        "image":"./bookCard.jpg"
+    },
+    {
+        "id":7,
+        "name":"Story book",
+        "title":"Aesop's fables",
+        "price":0,
+        "category":"free",
+        "image":"./bookCard.jpg"
+    },
+    {
+        "id":8,
+        "name":"Story book",
+        "title":"Aesop's fables",
+        "price":0,
+        "category":"free",
+        "image":"./bookCard.jpg"
+    },
+    {
+        "id":9,
+        "name":"Story book",
+        "title":"Aesop's fables",
+        "price":0,
+        "category":"free",
+        "image":"./bookCard.jpg"
+    }
+]
