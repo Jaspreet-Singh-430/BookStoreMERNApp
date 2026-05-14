@@ -28,7 +28,7 @@ export default function Banner() {
 </label>
 <div className="validator-hint hidden">Enter valid email address</div>
 </div>
-<button className="btn btn-secondary mt-5">Secondary</button>
+<button className="btn btn-secondary mt-5">Get Started</button>
         </div>
         <div className="md:w-1/2 w-full md:order-2 order-1"><img className="mt-3 h-120 w-120" src={books} alt=""></img></div>
     </div>

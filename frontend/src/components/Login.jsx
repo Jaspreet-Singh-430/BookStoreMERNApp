@@ -1,21 +1,53 @@
 import React from 'react'
+import axios from "axios"
+import { useContext } from 'react'
+import { AuthContext } from '../Context/authProvider.jsx'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-hot-toast'
 import { useForm } from "react-hook-form"
 import {Link} from "react-router-dom"
 export default function Login() {
+  const {setAuthUser} = useContext(AuthContext)
+  const navigate = useNavigate()
    const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async(data) => {
+        const userInfo={
+      
+      email:data.email,
+      password:data.password
+    }
+  await axios.post("http://localhost:3001/user/login",userInfo)
+  .then((res)=>{
+    console.log(res.data)
+    if(res.data.msg==="User logged in successfully") {
+      // document.getElementById("my_modal_3").showModal()
+      toast.success("User logged in successfully")
+      document.getElementById("my_modal_3").close()
+        localStorage.setItem("authUser",JSON.stringify(res.data.user))
+        setAuthUser(res.data.user)
+        setTimeout(()=>{
+          navigate("/")
+        },2500)
+      
+    }
+  }).catch((err)=>{
+    
+    if(err.response)
+    toast.error("Error: "+err.response.data.message)
+  })
+  }
   return (
 <dialog id="my_modal_3" className="modal">
   <div className="modal-box">
     <form method="dialog" >
-      <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</Link>
-    </form>
+      <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+      onClick={()=>document.getElementById("my_modal_3").close()}>✕</Link>
     <h3 className="font-bold text-lg">Login</h3>
-    <form>
+    
     <div className="mt-4 space-y-1">
         <span>Email</span>
         <br/>

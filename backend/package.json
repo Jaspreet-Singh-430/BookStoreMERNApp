@@ -1,12 +1,29 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "description": "Backend of bookstore",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaspreet-Singh-430/BookStoreMERNApp.git"
+  },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "bugs": {
+    "url": "https://github.com/Jaspreet-Singh-430/BookStoreMERNApp/issues"
+  },
+  "homepage": "https://github.com/Jaspreet-Singh-430/BookStoreMERNApp#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1",
+    "nodemon": "^3.1.10"
+  }
 }

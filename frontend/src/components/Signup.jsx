@@ -1,14 +1,45 @@
 import React from 'react'
+import axios from "axios"
 import {Link} from "react-router-dom"
 import { useForm } from "react-hook-form"
+import { toast } from 'react-hot-toast'
 import Login from "./Login.jsx"
+import { AuthContext } from '../Context/authProvider.jsx'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 export default function Signup() {
+  const {setAuthUser} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const navigate = useNavigate()
+  const onSubmit = async(data) => {
+    const userInfo={
+      fullname:data.name,
+      email:data.email,
+      password:data.password
+    }
+  await axios.post("http://localhost:3001/user/signup",userInfo)
+  .then((res)=>{
+    console.log(res.data)
+    if(res.data.msg==="User created successfully") {
+      toast.success("User created successfully")
+      // document.getElementById("my_modal_3").showModal()
+      localStorage.setItem("authUser",JSON.stringify(res.data.user))
+      setAuthUser(res.data.user)
+      setTimeout(()=>{
+
+        navigate("/")
+      },1500)
+    }
+  }).catch((err)=>{
+    
+    if(err.response)
+    toast.error("Error: "+err.response.data.message)
+  })
+}
   return (
     <>
     <div className="flex h-screen items-center justify-center">
